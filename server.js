@@ -7,7 +7,7 @@ var port = process.env.PORT || 8080;
 
 app.get('/', function(req, res){
 	//var ip = req.ip;
-	var ip = req.headers;
+	var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 	res.send(ip);
 
 });
