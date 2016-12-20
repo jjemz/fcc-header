@@ -1,9 +1,14 @@
+
 var express = require('express');
 var app = express();
+app.set('trust_proxy', 1);
+
 var port = process.env.PORT || 8080;
 
 app.get('/', function(req, res){
-	res.send('request header parser project');
+	//var ip = req.ip;
+	var ip = req.headers;
+	res.send(ip);
 
 });
 
